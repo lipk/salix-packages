@@ -1,0 +1,14 @@
+Index: xfce4-mailwatch-plugin-1.1.0/panel-plugin/Makefile.am
+===================================================================
+--- xfce4-mailwatch-plugin-1.1.0.orig/panel-plugin/Makefile.am
++++ xfce4-mailwatch-plugin-1.1.0/panel-plugin/Makefile.am
+@@ -62,7 +62,8 @@ xfce4_mailwatch_plugin_LDFLAGS = \
+ 	@GTHREAD_LIBS@ \
+ 	@LIBXFCE4PANEL_LIBS@ \
+ 	@LIBXFCEGUI4_LIBS@ \
+-	@GNUTLS_LIBS@
++	@GNUTLS_LIBS@ \
++	-lgcrypt
+ 
+ if HAVE_CYGWIN
+   xfce4_mailwatch_plugin_LDFLAGS += \

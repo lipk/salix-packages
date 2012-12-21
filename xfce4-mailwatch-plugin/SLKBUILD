@@ -1,0 +1,35 @@
+#Maintainer: Boldizsár Lipka <lipka.boldizsar@gmail.com>
+
+pkgname=xfce4-mailwatch-plugin
+pkgver=1.1.0
+pkgrel=1lb
+source=("http://git.xfce.org/panel-plugins/xfce4-mailwatch-plugin/snapshot/xfce4-mailwatch-plugin-1.1.0.tar.bz2")
+
+url="http://www.xfce.org"
+
+
+slackdesc=\
+(
+#|-----handy-ruler------------------------------------------------------|
+"xfce4-mailwatch-plugin (A mail watcher plugin for the Xfce panel" \
+"An Xfce panel plugin to check for new mail in IMAP4/POP3 accounts. It" \
+"supports multiple mailboxes."
+)
+
+build() {
+	# Patches are not my working, they're taken from the respective openSUSE
+	# from the Open Build Service
+	cd $startdir/src
+	patch -p0 < ../fix-high-cpu-usage-while-checking-mail.patch
+	patch -p0 < ../fix-build-with-4.7.patch	
+	patch -p0 < ../fix-gnutls-3.0.3.patch
+	patch -p0 < ../use-docdir.patch
+	patch -p0 < ../set-mail-interval.patch
+	patch -p0 < ../fix-format-string-errors.patch
+	patch -p0 < ../link-against-gcrypt.patch
+
+        cd $startdir/src/$pkgname-$pkgver
+        ./autogen.sh --prefix=/usr || return 1
+	VERBOSE=1 make -j3 || return 1
+	VERBOSE=1 make install DESTDIR=$startdir/pkg || return 1
+}

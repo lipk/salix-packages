@@ -1,0 +1,19 @@
+diff -ur xfce4-mailwatch-plugin-1.1.0.orig/panel-plugin/Makefile.am xfce4-mailwatch-plugin-1.1.0/panel-plugin/Makefile.am
+--- xfce4-mailwatch-plugin-1.1.0.orig/panel-plugin/Makefile.am	2008-09-15 07:14:45.000000000 +0200
++++ xfce4-mailwatch-plugin-1.1.0/panel-plugin/Makefile.am	2010-12-05 11:19:43.000000000 +0100
+@@ -50,6 +50,7 @@
+ 	-I$(top_srcdir)/libmailwatch-core \
+ 	@GTHREAD_CFLAGS@ \
+ 	@LIBXFCE4PANEL_CFLAGS@ \
++	@LIBXFCEGUI4_CFLAGS@ \
+ 	-DDATADIR=\"$(datadir)\" \
+ 	-DLOCALEDIR=\"$(localedir)\"
+ 
+@@ -60,6 +61,7 @@
+ 	$(top_builddir)/libmailwatch-core/libmailwatch-core.la \
+ 	@GTHREAD_LIBS@ \
+ 	@LIBXFCE4PANEL_LIBS@ \
++	@LIBXFCEGUI4_LIBS@ \
+ 	@GNUTLS_LIBS@
+ 
+ if HAVE_CYGWIN

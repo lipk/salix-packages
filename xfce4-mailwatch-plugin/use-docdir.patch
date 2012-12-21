@@ -1,0 +1,36 @@
+Index: xfce4-mailwatch-plugin-1.1.0/doc/C/Makefile.am
+===================================================================
+--- xfce4-mailwatch-plugin-1.1.0.orig/doc/C/Makefile.am
++++ xfce4-mailwatch-plugin-1.1.0/doc/C/Makefile.am
+@@ -3,10 +3,10 @@ SUBDIRS = \
+ 
+ noinst_DATA = xfce4-mailwatch-plugin.xml
+ 
+-docdir = $(datadir)/xfce4/doc/C
+-doc_DATA = xfce4-mailwatch-plugin.html
++cdocdir = $(docdir)/html/C
++cdoc_DATA = xfce4-mailwatch-plugin.html
+ 
+-EXTRA_DIST = $(noinst_DATA) $(doc_DATA)
++EXTRA_DIST = $(noinst_DATA) $(cdoc_DATA)
+ 
+ html: $(srcdir)/xfce4-mailwatch-plugin.xml
+ 	xsltproc $(top_srcdir)/doc/xfce-nochunk.xsl \
+Index: xfce4-mailwatch-plugin-1.1.0/doc/C/images/Makefile.am
+===================================================================
+--- xfce4-mailwatch-plugin-1.1.0.orig/doc/C/images/Makefile.am
++++ xfce4-mailwatch-plugin-1.1.0/doc/C/images/Makefile.am
+@@ -1,5 +1,5 @@
+-imagesdir = $(datadir)/xfce4/doc/C/images
+-images_DATA = \
++cimagesdir = $(docdir)/html/C/images
++cimages_DATA = \
+ 	mailwatch-gmail-settings.png \
+ 	mailwatch-imap-advanced.png \
+ 	mailwatch-imap-new-folders.png \
+@@ -14,4 +14,4 @@ images_DATA = \
+ 	mailwatch-pop3-settings.png \
+ 	mailwatch-properties.png
+ 
+-EXTRA_DIST = $(images_DATA)
++EXTRA_DIST = $(cimages_DATA)
