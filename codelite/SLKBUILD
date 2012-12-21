@@ -1,0 +1,29 @@
+#Maintainer: Boldizsár Lipka <lipka.boldizsar@gmail.com>
+
+pkgname=codelite
+pkgmainver=4.1
+pkgbuild=5770
+pkgver=$pkgmainver.$pkgbuild
+pkgrel=1lb
+source=("http://downloads.sourceforge.net/project/codelite/Releases/$pkgname-$pkgmainver/$pkgname-$pkgver-gtk.src.tar.gz")
+
+
+url="http://www.codelite.org"
+
+
+slackdesc=\
+(
+#|-----handy-ruler------------------------------------------------------|
+"codelite (A cross-platform, open source C++ IDE)" \
+"CodeLite is powerful, extensible development environment for the" \
+"C++ language, based on the wxWidgets framework. This package also" \
+"contains various plugins which provide additional functionality for" \
+"CodeLite, such as integration with Git and Subversion."
+)
+
+build() {
+        cd $startdir/src/$pkgname-$pkgver
+        ./configure
+        VERBOSE=1 make -j3 || return 1
+        VERBOSE=1 make DESTDIR=$startdir/pkg install
+}
