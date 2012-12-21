@@ -7,7 +7,7 @@ Building packages
 ==============
 
 First, make sure that the software listed in the .deps file of the package is
-installed on your computer. After that you can compile tha package with
+installed on your computer. After that you can compile the package with
 
 cd {package directory}
 slkbuild
